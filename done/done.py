@@ -4,8 +4,10 @@ import pkg_resources
 import uuid
 
 from xblock.core import XBlock
+from xblockutils.settings import XBlockWithSettingsMixin
 from xblock.fields import Scope, String, Boolean, DateTime, Float
 from xblock.fragment import Fragment
+
 
 def resource_string(path):
     """Handy helper for getting resources from our kit."""
@@ -13,7 +15,7 @@ def resource_string(path):
     return data.decode("utf8")
 
 
-class DoneXBlock(XBlock):
+class DoneXBlock(XBlockWithSettingsMixin, XBlock):
     """
     Show a toggle which lets students mark things as done.
     """
